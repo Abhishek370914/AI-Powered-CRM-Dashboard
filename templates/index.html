@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Insights Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="dashboard">
+        <header class="header">
+            <h1>Customer Insights Dashboard</h1>
+        </header>
+        <nav class="sidebar">
+            <ul>
+                <li><a href="#overview" class="active">Overview</a></li>
+                <li><a href="#customer-data">Customer Data</a></li>
+                <li><a href="#insights">Insights</a></li>
+            </ul>
+        </nav>
+        <main class="main-content">
+            <section id="overview" class="section">
+                <h2>Overview</h2>
+                <div class="card-container">
+                    <div class="card" id="total-customers">
+                        <h3>Total Customers</h3>
+                        <p class="card-value">0</p>
+                    </div>
+                    <div class="card" id="avg-purchase">
+                        <h3>Avg. Purchase Amount</h3>
+                        <p class="card-value">$0</p>
+                    </div>
+                    <div class="card" id="avg-loyalty">
+                        <h3>Avg. Loyalty Score</h3>
+                        <p class="card-value">0</p>
+                    </div>
+                </div>
+            </section>
+            <section id="customer-data" class="section">
+                <h2>Customer Data</h2>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Age</th>
+                                <th>Purchase Amount</th>
+                                <th>Loyalty Score</th>
+                                <th>Churn Risk</th>
+                                <th>Segment</th>
+                            </tr>
+                        </thead>
+                        <tbody id="customer-table-body">
+                            <!-- Data will be populated by JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+            <section id="insights" class="section">
+                <h2>Insights</h2>
+                <div class="chart-container">
+                    <div class="chart">
+                        <h3>Churn Risk Distribution</h3>
+                        <canvas id="churn-risk-chart"></canvas>
+                    </div>
+                    <div class="chart">
+                        <h3>Customer Segments Distribution</h3>
+                        <canvas id="customer-segments-chart"></canvas>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
+</body>
+</html>
